@@ -83,6 +83,7 @@ crosscorr(restd_gjr,restd_gjr.^2)
 L = 5;
 l = length(rt);
 for1 = forecast(EstMd1_garch,L,'Y0',rt);
+for2 = forecast(EstMdl_gjr, L, 'Y0', rt);
 
 figure()
 plot(V_cond,'color',[.7,.7,.7])
@@ -97,7 +98,7 @@ figure()
 plot(Vcond_gjr,'color',[.7,.7,.7])
 xlim([5500 l+L+5]);
 hold on
-plot(l+1:l+L,for1,'r','LineWidth',2);
+plot(l+1:l+L,for2,'r','LineWidth',2);
 legend('Conditional Variance','Forecast')
 title('Volatility Forecast with GJR-Garch')
 hold off
